@@ -1,3 +1,27 @@
-# Dynamic SD
+# Spatial scale of control and mixing predicts dynamics of canine rabies
 
-We have finished a nice book.
+```{r update-files, include=FALSE}
+if(params$diss) {
+  here <- function(x) {
+    file.path("/Users/mrajeev/Documents/Projects/dynamicSD", x)
+  }
+} else {
+  library(here)
+}
+
+file.copy(here("analysis/paper/bib/references.bib"), 
+          "bib/references.bib")
+file.copy(here("analysis/paper/bib/references.bib"), 
+          "bib/refs_dummy.bib")
+
+```
+
+
+
+```{r build-ch4, child = '/Users/mrajeev/Documents/Projects/dynamicSD/analysis/paper/manuscript.Rmd'}
+```
+
+
+
+
+

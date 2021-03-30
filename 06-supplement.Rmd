@@ -1,7 +1,5 @@
-# Supplementary Information {-}
+# Appendix: Additional publications and software resulting from dissertation work {-}
 
-## Supplementary Information for Chapter 2 {-}
+## Additional publications {-}
 
-## Supplementary Information for Chapter 3 {-}
-
-## Supplementary Information for Chapter 4 {-}
+## Additional software {-}

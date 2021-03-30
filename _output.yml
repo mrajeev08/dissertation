@@ -1,11 +1,12 @@
 bookdown::pdf_book:
-  pandoc_args: --lua-filter=bib/multiple-bibliographies.lua
   includes:
     in_header: latex/preamble.tex
     before_body: latex/before_body.tex
     after_body: latex/after_body.tex 
   latex_engine: xelatex
-  citation_package: natbib
+  pandoc_args:
+      - --lua-filter=format/multiple-bibliographies.lua
+      - --csl=format/plos-neglected-tropical-diseases.csl
   keep_tex: yes
 bookdown::gitbook:
   css: styles/style.css
