@@ -1,9 +1,9 @@
 --- 
 title: |
-  | DATA AND MODELING TO INFORM CANINE RABIES CONTROL AND ELIMINATION
+  | **DATA AND MODELING TO INFORM CANINE RABIES CONTROL AND ELIMINATION**
   |
 date: | 
-  | Malavika Rajeev
+  | **Malavika Rajeev**
   |
   |
   |
@@ -21,46 +21,90 @@ date: |
   |
   |
   |
-  | `r format(Sys.Date(), '%B %Y')`
+  | **May 2021**
 documentclass: book
-nocite: '@*'
 bibliography_main: ["bib/references.bib"]
-bibliography_dummy: ["bib/refs_dummy.bib"]
-link-citations: no
-description: "Dissertation draft"
+bibliography_intro: ["bib/intro.bib"]
+bibliography_conc: ["bib/conclusion.bib"]
+link-citations: yes
+nocite: '@*'
+lot: yes
+lof: yes
+description: "Dissertation"
 site: bookdown::bookdown_site
+classoption: oneside
 params:
   diss: TRUE
+github-repo: mrajeev08/dissertation
+url: https://mrajeev08.github.io/dissertation
 ---
 
 \mainmatter
 
-\pagestyle{fancy}
-\lhead{}
-\chead{}
-\rhead{\thepage}
-\cfoot{} 
-\renewcommand{\headrulewidth}{0pt}
-\renewcommand{\footrulewidth}{0pt}
+\setlength{\headheight}{15pt}
+\pagestyle{plain}
+
+\setlength{\parskip}{2em}
+
+
+```{r if-git, results='asis', echo=FALSE}
+
+# use read lines! So only have to update it in one place
+
+if(!knitr::is_latex_output()) {
+  
+  bits <- readLines("latex/before_body.tex")
+  
+  cat("
+      
+      # Abstract {-}
+      
+      ")
+  cat(bits[(grep("Abstract", bits) + 1):(grep("Acknowledgements", bits) - 1)],
+      sep = "\n")
+  
+   cat("
+      
+      # Acknowledgements {-}
+      
+      ")
+  cat(bits[(grep("Acknowledgements", bits) + 1):length(bits)], sep = "\n")
+
+}
+
+```
 
 # Introduction  
 
-Disease elimination is an elusive goal that requires technical knowledge and practical implementation to be realized. To date only one human and one animal disease have been successfully eliminated through coordinated control efforts, smallpox and rinderpest, respectively [1]. Critically, integrating key aspects of the pathogen epidemiology and understanding features of transmission were likely key to acheiving this success [2]. 
+The burden of infectious diseases globally has rapidly declined in the past century due to bio-medical (i.e. vaccines and pharmaceuticals) and societal (i.e. improved nutrition and sanitation) advances [@santosa2014]. However, these gains have been distributed unequally, and many infectious diseases that have limited impact in high income settings still cause substantial morbidity and mortality in low-and-middle income settings [@santosa2014, @marinho2013]. Elimination of an infectious disease, that is reduction to zero incidence of infection caused by a specific established pathogen in a defined geographical area, remains an elusive goal for pathogens across these settings [@klepac2013]. At the national scale, in high income countries, issues such as vaccine hesitancy and socioeconomic inequalities are barriers to country-wide elimination [@klepac2013, @hotez2008. In low-income countries, these same issues play out in the context of under-funded public health systems, a broader docket of infectious disease competing for these limited resources, and colonial socioeconomic legacies that all work to hinder implementation of intensive control programs  [@klepac2013, @hotez2010]. Indeed, elimination at the global scale (i.e. eradication), has been successful for only two pathogens in history, one human (smallpox) and one animal (rinderpest) [@klepac2015]. While much of the success of these eradication programs can be attributed to aspects of the pathogen biologies, as well as key technological and intervention strategies (e.g., community based surveillance, a thermotolerant vaccine), the world has also changed, with larger and more interconnected human and animal populations [@klepac2013]. Despite these new challenges, a slate of infectious diseases have been targeted for global elimination in the coming decades by the global health community [@klepac2015].
 
-Mathematical models are a powerful tool in the elimination arsenal and, combined with epidemiological studies, can help to develop ‘best-bets’ for control strategies [3]. Models can shed light onto the factors that drive disease dynamics, such as seasonality or age contact patterns; they can be used to estimate burden and costs of interventions; they can forecast future dynamics and also explore potential outcomes given different control and transmission scenarios. But it is also critical that models are grounded in data that are representative of the lived reality of people affected by a disease.
+Mathematical models are a powerful tool in our elimination arsenal and can help to develop ‘best-bets’ for control strategies [@heesterbeek2015]. Models can shed light onto the factors that drive disease dynamics; they can be used to estimate burden and costs of interventions; they can forecast future dynamics; and they can explore outcomes given different control strategies [@lessler2016]. In particular, dynamic models of transmission can help to disentangle the complexity inherent in disease systems, where non-linear feedbacks between infection and immunity, transmission and human behavior, often result in unintuitive outcomes [. These models emerge from a rich interdisciplinary history in mathematics, epidemiology, and ecology, and apply mechanistic modeling approaches to understand infectious disease dynamics [@lessler2016; @heesterbeek2015]. While even the most simple models can provide unintuitive insights into dynamics [@mollison1994], recent work has highlighted additional complexities that structure transmission which are highly pathogen specific. For example, for many directly transmitted immunizing infections, age structured contact and transmission are key to predicting dynamics and the outcomes of infection [@metcalf2015]. For respiratory and vector borne diseases, seasonality and climate predict cyclical dynamics of disease [@mahmud2020]. For other pathogens, spatial and social structures, or network dynamics broadly, are necessary to explain observed patterns of disease @pellis2015; @funk2015]. 
 
-Canine rabies causes an estimated 60,000 human deaths annually, primarily in low and middle income countries in sub-Saharan Africa and Asia [4]. These deaths are entirely preventable: human deaths can be prevented through prompt post-exposure prophylaxis (PEP) and transmission can be interrupted in domestic dogs through mass dog vaccination. A target for zero human deaths due to dog-mediated rabies by 2030 (ZeroBy30) has been set by global health partners through implementation of a combination of these interventions [5].  At this critical policy juncture, research on intervention strategies and policy can greatly inform the path to elimination. Surveillance for canine rabies in endemic contexts is highly limited and available data are often restricted to urban and suburban centers with greater access to diagnostics and veterinary services [6]. In Chapter 1, I tackle this issue in a district in Madagascar, setting up a clinic based surveillance study to assess rabies burden and surveillance. I find that rabies burden and cases are signficantly underreported in the district, and use estimates of exposure incidence and health-seeking behavior to estimate burden. In Chapter 2, I integrate data collected from this study with routine public health data from across Madagascar to incorporate spatial access to PEP into estimates of human rabies burden and explore how expanding access to PEP can mitigate this impact, particularly in the context of a potential investment by GAVI in supporting countries to expand access to PEP. 
+Therefore, the backbone of infectious disease models should a firm grasp of a pathogen's biology, epidemiology, ecology, and sociology (here referring to two-way interdependence between social and economic factors and transmission and disease outcomes). Traditional epidemiological and bio-medical studies, as well as newer data streams such as cell-phone and social network data, can help to quantify key parameters and mechanisms underpinning transmission [@bansal2016]. Routine public health and epidemiological data, such as time series of incidence at aggregated scales, or line list data at an individual scale, are also critical to understanding whether the models can capture what we observe in reality  [@cauchemez2019]. In addition to case data, data on the underlying susceptible population are also necessary to predict observed dynamics, and can also be used to estimate epidemiological parameters. 
 
-In Chapter 3, I review the existing body of dynamic transmission modeling work for canine rabies and identify key gaps and issues: primarily the paucity of data and of modeling studies that fit to data and the lack of a modeling framework which generates dynamics consistent with both endemic and epidemic dynamics. Finally, in Chapter 4, I tackle this gap by developing a simplified individual based model of canine rabies transmission, and fitting the model to a comprehensive long-term dataset of canine rabies cases and dog vaccination from the Serengeti District. I find that incorportating both the spatial scale of population mixing and the scale of control are critical to generating dynamics consistent with observed data, and with expectations in an endemic context. Overall, this work contributes in a multi-faceted way to tackling a pressing public health issue, both by generating key data and developing new quantitative approaches to taclking how best to control, and eventually eliminate canine rabies. 
+However, there are challenges in the use and collection of infectious disease data that need to be considered to make informed inferences. First, no data generation process is perfect: noise and error are invariably introduced and it is up to users of the data to determine whether the quality of the data is suitable for the inference task at hand. These data may also not be representative of the populations being studied [@cauchemez2019]. The availability and quality of routine public health data and surveillance broadly parallels the inequities in burden itself, and often the areas and communities most impacted by a given pathogen are likely to be the least represented in the data, and biases in the data could result in biased inference and conclusions of outcomes and impact [@lessler2016]. Finally, given the noisy and nonlinear nature of infectious disease dynamics, in addition to noise generated in the observation process, inference integrating these data and models are still a area of developing research, although recent years have brought forth promising simulation based methods to tackle these issues [@funk2020].
+
+It is a daunting task to parse these complexities, but a key challenge for modern infectious disease modeling is to understand for a given pathogen which complexities in the system and in the data matter, and perhaps more importantly which ones are predictable [@heesterbeek2015; @park2020]. Recent advances in statistical methods and the advent of big data have already proven fruitful in furthering our understanding of disease dynamics, but ultimately even given these advances, these modeling efforts should be rooted in a strong understanding of the basics: pathogen biology and ecology, public health realities and constraints, and a realistic understanding of the limits of models and inference to answer the questions at hand. 
+
+## Canine rabies as a test case
+Canine rabies, i.e. those viral lineages maintained in domestic dog populations, accounts for the vast majority of human cases of rabies, causing an estimated 60,000 human deaths annually, primarily in low and middle income countries in sub-Saharan Africa and Asia [@hampson2015]. These deaths are entirely preventable: human deaths can be prevented through prompt post-exposure prophylaxis (PEP) and transmission can be interrupted in domestic dogs through mass dog vaccination. A target for zero human deaths due to dog-mediated rabies by 2030 (ZeroBy30) has been set by global health partners through implementation of a combination of these interventions[@abela-ridder2016]. At this critical policy juncture, research on intervention strategies and policy can greatly inform control strategies across the elimination timeline, from endemic to elimination settings. 
+
+Overall, the pathogen ecology and biology of canine rabies is well established. There is strong evidence that wild reservoirs are not necessary to maintain canine rabies [@lembo2010], and that vaccination of the domestic dog population alone can be sufficient for elimination, with a recommended vaccination target of 70% of the dog population [@delriovilas2017]. Infection is almost invariably fatal, and the infectious period is short and marked by severe and noticeable neurological symptoms [@rupprecht2002]. Estimates of the $R_{0}$, or the average number of secondary infections resulting from a single infection in a completely susceptible population, are consistently low, between 1 - 2, and transmission is highly heterogeneous, with many dead-end infections and a small fraction of individuals who contribute to the majority of transmission [@hampson2009]. Dispersal is also highly skewed, with the majority of cases being seeded within a 1 km kernel, but in some cases disease mediated dispersal (i.e. due to behavioral changes resulting from infection) can result in movements of over 10 km. Although thought to be rare, there is also evidence that human-mediated dog movement across even larger spatial scales may contribute to transmission and persistence of canine rabies [@talbi2010; @brunker2015]. Given the low incidence and heterogeneities in transmission and dispersal, dynamics are expected to by highly stochastic and noisy.  
+
+While there is a rich history of mathematical modeling in the wildlife rabies context, models in the domestic dog context are far fewer. In addition, existing models fail to capture broad features of observed transmission: lack of density dependent transmission (i.e. there is little evidence that transmission scales with local dog densities) and low incidence levels (~ 1 -2 % annually at peak incidence levels). Recent phylogenetic work suggests that spatial dynamics are key for the maintenance of canine rabies and that this maintenance may occur across large spatial scales. However, the majority of modeling studies conducted to date are non-spatial models, and most modeling studies do not confront their models to observed data (See Chapter 3, [@rajeev2020modeling]). 
+
+This is largely due to a dearth of routine surveillance data for canine rabies in endemic settings. The most commonly available data is bite patient data, i.e. persons seeking care for an animal bite, but while this data is often used as a proxy for rabies exposures, they are heavily skewed by who has access to care and by the non-specific nature of animal bites (i.e there are many reasons that are not rabies for an animal to bite/scratch a person). Laboratory confirmed case data are sparse due to limited laboratory and field capacity, largely limited to large urban centers in low-and-middle income countries. Finally, human death data is perhaps thought to be the most significantly underreported, as most human rabies deaths happen in the most marginalized communities with the least access to care, and these data often do not get aggregated and reported at the national level. In addition to limited case data, data on the underlying dog population are also needed to model disease dynamics, however, as humans structure dog populations, human population data can be used to extrapolate dog populations, although with considerable uncertainty. Finally, while natural immunity is likely to play a limited role in rabies dynamics, data on vaccination status and estimates of vaccination coverage (which again also requires a denominator of the total number of dogs) are also lacking and often not systematically collected (See Chapter 3, [@rajeev2020modeling]). 
+
+## Prospectus 
+
+In this dissertation, I build on the established body of work to tackle the challenges of integrating data and models to understand burden, dynamics, and control of canine rabies. I focus on two geographic contexts, establishing new studies and data collection efforts in Madagascar and analyzing existing data sets from the Serengeti District, Tanzania. In Madagascar, rabies has been endemic for over a century, but access to PEP for humans and dog vaccination are extremely limited and rabies circulates in an endemic context [@andriamandimby2013]. In the Serengeti District, Tanzania, mass dog vaccination programs and intensive data collection efforts have been ongoing for the past 20 years, resulting in a unparalleled dataset on canine rabies and domestic dogs [@Mancyinprep]. 
+
+In Chapter 1, I describe the results from a clinic based surveillance study to assess rabies burden and surveillance in a district of Madagascar, where I find that poor surveillance masks the true burden of the disease. I find that with enhanced surveillance, observed burden in this single district of Madagascar is approximately on the order of magnitude of annual deaths reported across Madagascar, that active surveillance resulted in 5 times as more animal rabies cases being laboratory confirmed, and 25 times as many cases being clinically diagnosed. Using this data on rabies exposure incidence and health-seeking behavior, I use a decision tree model to estimate burden of disease in the Moramanga District and across Madagascar. In Chapter 2, I integrate data collected from this study with routine public health data from across Madagascar to incorporate spatial access to PEP into estimates of human rabies burden and explore how expanding access to PEP can mitigate this impact, particularly in the context of a potential investment by GAVI in supporting countries to expand access to PEP. I find that while geographic access does shape burden of human rabies across Madagascar, expanding access to PEP spatially will not be enough to go 'the last mile' for preventing rabies deaths. 
+
+In Chapter 3, I review the existing body of dynamic transmission modeling work for canine rabies and identify key gaps and challenges: primarily the paucity of data and the lack of a modeling framework that generates dynamics consistent with both endemic and epidemic dynamics. Finally, in Chapter 4, I tackle this gap by developing a simplified individual based model of canine rabies transmission, and fitting the model to a comprehensive long-term dataset of canine rabies cases and dog vaccination from the Serengeti District. I find that incorporating both the spatial scale of population mixing and the scale of control are critical to generating dynamics consistent with observed data, and with expectations in an endemic context, and that high resolution spatiotemporal data can be used for both model choice and parameter estimation. Overall, this work contributes broadly to addressing the goal of ZeroBy30, both by generating key data and developing new quantitative approaches to tackling how best to control, and eventually eliminate canine rabies. 
 
 ## References {-}
+\setlength{\parskip}{1em}
 
-[1] Klepac, Petra, C. Jessica E. Metcalf, Angela R. McLean, and Katie Hampson. "Towards the endgame and beyond: complexities and challenges for the elimination of infectious diseases." (2013): 20120137.
-
-[2] Henderson, Donald A. "Lessons from the eradication campaigns." Vaccine 17 (1999): S53-S55.
-
-[3] Heesterbeek, Hans, Roy M. Anderson, Viggo Andreasen, Shweta Bansal, Daniela De Angelis, Chris Dye, Ken TD Eames et al. "Modeling infectious disease dynamics in the complex landscape of global health." Science 347, no. 6227 (2015).
-
-[4] Hampson, Katie, Laurent Coudeville, Tiziana Lembo, Maganga Sambo, Alexia Kieffer, Michaël Attlan, Jacques Barrat et al. "Estimating the global burden of endemic canine rabies." PLoS Negl Trop Dis 9, no. 4 (2015): e0003709.
-
-[5] Abela-Ridder, Bernadette, Lea Knopf, Stephen Martin, Louise Taylor, Gregorio Torres, and Katinka De Balogh. "2016: the beginning of the end of rabies?." The Lancet Global Health 4, no. 11 (2016): e780-e781.
+::: {#refs_intro}
+:::

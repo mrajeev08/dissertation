@@ -1,5 +1,8 @@
 # Spatial scale of control and mixing predicts dynamics of canine rabies
 
+\newpage
+\beginmain
+
 ```{r update-files, include=FALSE}
 if(params$diss) {
   here <- function(x) {

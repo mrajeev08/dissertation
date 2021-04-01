@@ -1,11 +1,13 @@
 # Modeling canine rabies virus transmission dynamics
 
-This chapter was originally published in:
+*This chapter was originally published in:*
 
-Rajeev M., Metcalf C.J.E., & Hampson K. Modeling canine rabies virus transmission dynamics. Chapter in Rabies, 4th Edition. May 2020.
+*__Rajeev M.__, Metcalf C.J.E., & Hampson K. Modeling canine rabies virus transmission dynamics. Chapter in Rabies, 4th Edition. May 2020.*
 
-Minor formatting modifications and edits have been made for the dissertation.
+*The authors' pre-editorial version is included here.*
 
+\newpage
+\setlength{\parskip}{2em}
 
 ## Abstract {-}
 
@@ -60,7 +62,7 @@ influences and be tractable to interpretation in data-sparse settings.
 ### The modeling backbone for canine rabies
 
 Rabies can be modeled in an **SEIV** framework, with **Susceptible**,
-**Exposed**, **Infectious,** and **Vaccinated** classes (Figure 20.1).
+**Exposed**, **Infectious,** and **Vaccinated** classes (Figure \@ref(fig:ch4-fig1)).
 Dog demography governs the dynamics of the susceptible and vaccinated
 classes. The **Susceptible** population is replenished by births and
 depleted by mortality (both natural and disease-induced) and
@@ -85,7 +87,7 @@ infections manifest months after initial exposure [14]-[16]. The
 infectious period, on the other hand, is predictably short, and
 infection results in death generally within 10 days of showing
 neurological signs of infection [14], [17]. There is little evidence
-that individuals can be infectious but subclinical (i.e. no carrier
+that individuals can be infectious but sub-clinical (i.e. no carrier
 class), and there is no recovered class, as exposure does not confer
 immunity [18], and following onset of clinical signs, rabies is
 invariably fatal.
@@ -99,11 +101,13 @@ settlements within the range of rabid dog movement). In addition,
 long-distance human-mediated incursions of incubating dogs can result in
 outbreaks being seeded from otherwise unconnected populations [19].
 
-![](figs/ch3/image1.jpeg){width="6.425311679790026in"
-height="4.6263735783027125in"}
 
-**Figure 20.1. The Susceptible-Exposed-Infectious-Vaccinated (SEIV)
-modeling framework for canine rabies:** circles indicate epidemiological
+```{r ch4-fig1, out.width="90%", fig.cap = '(ref:ch4-fig1-cap)', fig.scap='The Susceptible-Exposed-Infectious-Vaccinated (SEIV) modeling framework for canine rabies.'}
+knitr::include_graphics("figs/ch3/image1.jpeg")
+```
+
+(ref:ch4-fig1-cap) The Susceptible-Exposed-Infectious-Vaccinated (SEIV)
+modeling framework for canine rabies: circles indicate epidemiological
 classes, arrows linking circles indicate how individuals can move
 between classes, insets describe underlying processes and influences.
 **A) Host demography (i.e., the balance between births and deaths) and
@@ -129,10 +133,10 @@ population modeled may seed cases within. Introductions may results from
 **human-mediated** movements of incubating dogs (potentially on the
 scale of 100s of km through movement along roads; the inset shows an
 example of a major road network in Tanzania). All parameters used and
-associated references are listed in Table 20.1*
+associated references are listed in Table \@ref(tab:ch4-tab1)
 
-**Table 20.1 Key parameter values associated with underlying processes
-illustrated in Figure 20.1**
+
+Table: (\#tab:ch4-tab1) Key parameter values associated with underlying processes illustrated in \@ref(fig:ch4-fig1).
 
  | Process              | Distribution                                | Parameters                 | Value | Source                | Inset |
 |----------------------|---------------------------------------------|----------------------------|-------|-----------------------|-------|
@@ -173,8 +177,7 @@ of density-dependent transmission, indeterminate culling of dogs does
 not curtail rabies transmission [29].
 
 Despite evidence for frequency-dependent transmission, many modeling
-studies formulate rabies transmission as density-dependent (Figure
-20.2D). For a given R~0~, this assumption of density-dependent
+studies formulate rabies transmission as density-dependent (Fig \@ref(fig:ch4-fig2)D). For a given R~0~, this assumption of density-dependent
 transmission does not impact herd immunity thresholds; the critical
 proportion that needs to be vaccinated, p~c~, is equal to 1 - 1/R~0~
 regardless of the form of transmission [22]. However density-dependent
@@ -191,7 +194,7 @@ in eventual population extinction for fatal pathogens like rabies
 growth can rabies persist in models with frequency-dependent
 transmission. For models with density-dependent transmission, even with
 R~0~ between 1.01 and 1.1, models of rabies show high annual incidence
-(Supplemental Figure 1), which is at odds with empirical evidence. Where
+(Figure \@ref(fig:figS1)), which is at odds with empirical evidence. Where
 measured, rabies incidence is low (\< 1-2% annually) and consequently
 has little demographic impact on dog populations [31]. Additional
 model structure is therefore necessary to explain how rabies can persist
@@ -200,7 +203,7 @@ at such low incidence.
 Transmission heterogeneity may be a potential mechanism to explain the
 relatively low incidence of rabies. A high proportion of dead-end or
 singleton transmissions result in negligible depletion of susceptibles,
-while occasional superspreaders may seed and maintain transmission. In
+while occasional super-spreaders may seed and maintain transmission. In
 addition to unrealistic estimates of rabies incidence, if heterogeneity
 in transmission is not captured, there is a risk that models may
 generate biased estimates of control indicators, such as the time to
@@ -230,9 +233,12 @@ and, often, additional assumptions. Robust epidemiological and
 biological data are therefore key to improving our understanding of how
 to model rabies transmission.
 
-![](figs/ch3/image2.jpeg){width="6.0in" height="6.0in"}
 
-**Figure 20.2.** Summary of studies with a dynamic model of canine
+```{r ch4-fig2, out.width="90%", fig.cap = '(ref:ch4-fig2-cap)', fig.scap='Summary of studies with a dynamic model of canine rabies.'}
+knitr::include_graphics("figs/ch3/image2.jpeg")
+```
+
+(ref:ch4-fig2-cap) Summary of studies with a dynamic model of canine
 rabies. A total of 51 studies were included. A) Year of publication,
 with most studies published after 2006; B) Countries where rabies
 dynamics were modeled: studies were concentrated in China, Tanzania, and
@@ -246,9 +252,9 @@ density-dependent transmission (N = 27). Less than half were fit to data
 (N = 20), stochastic (N = 20), or spatially-explicit (N = 19). 15/51
 studies incorporated individual heterogeneity in transmission and 14/51
 introductions from outside the population modeled. Only 10 included an
-observation model in their analysis or accounted for underreporting in
+observation model in their analysis or accounted for under-reporting in
 their inference. Full bibliography and metadata included in
-Supplementary Table 1.*
+Supplementary Table 1.
 
 ## Existing Modeling Studies
 
@@ -266,8 +272,8 @@ that had the terms "rabies" AND ("domestic dog\*" OR "canine") AND
 "model\*" on PubMed and Scopus, including all English language papers
 published between January 1995 and July 2019 that incorporated a
 transmission model of rabies virus in domestic dogs. Of the 547 unique
-records retrieved, 51 papers fitted these inclusion criteria (Figure
-20.3, Supplementary Table S1).
+records retrieved, 51 papers fitted these inclusion criteria (Fig
+\@ref(fig:ch4-fig3), Online Supplementary Table S1).
 
 ### Insights and limitations
 
@@ -284,7 +290,7 @@ being eliminated [24], [35].
 
 While the critical vaccination threshold (*p~c~* or 1 - 1/*R~o~)* should
 theoretically be much lower than 70% for a disease with the low range of
-R~0~ estimated for rabies (Figure 20.2C), the coverage level recommended
+R~0~ estimated for rabies (Figure \@ref(fig:ch4-fig2)C), the coverage level recommended
 by WHO reflects an empirical consensus [23], [40]. Models show that
 due to high turnover in domestic dog populations, annual campaigns that
 reach at least 70% of the population are necessary to maintain coverage
@@ -295,7 +301,7 @@ observing small outbreaks even when vaccination coverage is high [14],
 [41].
 
 Most published models were deterministic (33/51) and did not incorporate
-heterogeneities in transmission (36/51, Figure 20.2D). However, as R~0~
+heterogeneities in transmission (36/51, Figure \@ref(fig:ch4-fig2)D). However, as R~0~
 for rabies appears to be low, the interaction between stochasticity and
 heterogeneity in transmission may be influential. In general, for
 diseases with high transmissibility (i.e. measles), heterogeneities in
@@ -307,7 +313,7 @@ the endgame, when elimination probabilities and incursion dynamics
 depend on rare events.
 
 Most studies model rabies virus transmission in a closed population,
-that is without introductions from neighboring areas (Figure 20.2D).
+that is without introductions from neighboring areas (Figure \@ref(fig:ch4-fig2)D).
 While this is a reasonable approach in island settings such as in Bali,
 Indonesia [24], recent modeling and phylogenetic work shows the
 importance of incursions in less isolated populations in sustaining
@@ -366,10 +372,12 @@ through Gavi, the Vaccine Alliance, is therefore a promising step
 towards the 2030 goal [56], but more investment and commitment is
 still needed.
 
-![](figs/ch3/image3.jpeg){width="6.49450678040245in"
-height="4.3296708223972in"}
 
-**Figure 20.3. Rabies data reported in modeling studies** (N = 25
+```{r ch4-fig3, out.width="90%", fig.cap = '(ref:ch4-fig3-cap)', fig.scap='Rabies data reported in modeling studies (N = 25 studies reporting 30 unique data sources).'}
+knitr::include_graphics("figs/ch3/image3.jpeg")
+```
+
+(ref:ch4-fig3-cap) Rabies data reported in modeling studies (N = 25
 studies reporting 30 unique data sources). A) Type of data used. B)
 The scales of temporal (x-axis) and spatial (colors) information
 available and the duration (y axis). The size of the points is
@@ -377,13 +385,13 @@ proportional to the number of observations in each data set. Any rabies
 data that was reported in studies were included (even if not used for
 fitting purposes, only for qualitative comparison). If multiple data
 sets were used, they were included as separate data sources, and if the
-same data set was used in multiple studies it was only included once.*
+same data set was used in multiple studies it was only included once.
 
 ## The gap between models and data
 
 Despite limited surveillance, few studies incorporated observation
 models into their analyses or conducted sensitivity analyses on how
-underreporting might bias their inferences (Figure 20.2D). Developing
+under-reporting might bias their inferences (Figure \@ref(fig:ch4-fig2)D). Developing
 models of the observation process and integrating them into dynamic
 models (often termed state-space modeling, [58]-[60] is essential
 when fitting to incomplete data. But, these modeling frameworks can also
@@ -392,14 +400,13 @@ estimating the minimum detection levels and time necessary to verify
 elimination [61].
 
 A major limitation of many existing modeling studies is a lack of data
-to inform conclusions, with less than 40% of models fit to data (Figure
-20.2D). For studies which did report incidence data, the scale and
+to inform conclusions, with less than 40% of models fit to data (Fig \@ref(fig:ch4-fig2)D). For studies which did report incidence data, the scale and
 quality of the data also varied greatly. Human deaths reported at the
 national or regional level and numbers of clinical and laboratory
-confirmed animal cases were the most commonly used data (Figure 20.3A).
+confirmed animal cases were the most commonly used data (Figure \@ref(fig:ch4-fig3)A).
 The number of observations and length of the time series varied greatly,
 from over 1000+ observations at a fine spatiotemporal scale over a
-15-year period to annual cases reported for only 2 years (Figure 20.3B).
+15-year period to annual cases reported for only 2 years (Figure \@ref(fig:ch4-fig3)B).
 Ultimately, integrating data on rabies incidence and dog populations
 into models of transmission is a critical step to moving modeling
 efforts forward. Below we describe the various data sources that can be
@@ -535,7 +542,7 @@ on studying control efforts and identifying drivers of dynamics (often
 without using data), and studies of the impact of control have rarely
 been linked to analyses grounded in empirical data (i.e. studies that
 explained observed patterns or estimated key parameters, see
-Supplementary Figure 2 for an overview of existing studies). Models
+Figure \@ref(fig:figS2) for an overview of existing studies). Models
 should aim to integrate these questions and test specific vaccination
 strategies, such as ring vaccination or establishment of control
 corridors based on geographic barriers as implemented for wildlife
@@ -551,7 +558,7 @@ decisions regarding the cessation and scaling back of control efforts.
 Importantly, models can predict how these requirements might change over
 the elimination timeline. Given the challenges in generating
 high-quality surveillance data for canine rabies, these models can also
-be used to account for underreporting and determine the minimum level of
+be used to account for under-reporting and determine the minimum level of
 detection necessary for robust inference. Phylodynamic approaches, which
 combine both epidemiological and genetic data, are a promising avenue to
 tackle many of these questions. Critically, progress in this area will
@@ -571,9 +578,11 @@ scientists, practitioners and policymakers.
 
 All data and code used to generate figures and supplemental files, as
 well as the bibliography for the literature review are available online
-at <https://github.com/mrajeev08/ModelingChapter>.
+at [https://github.com/mrajeev08/ModelingChapter](https://github.com/mrajeev08/ModelingChapter).
 
 ## References
+\setlength{\parskip}{1em}
+
 [1]	H. Heesterbeek, R. M. Anderson, V. Andreasen, S. Bansal, D. De Angelis, C. Dye, K. T. D. Eames, W. J. Edmunds, S. D. W. Frost, S. Funk, T. D. Hollingsworth, T. House, V. Isham, P. Klepac, J. Lessler, J. O. Lloyd-Smith, C. J. E. Metcalf, D. Mollison, L. Pellis, J. R. C. Pulliam, M. G. Roberts, C. Viboud, Isaac Newton Institute IDD Collaboration, “Modeling infectious disease dynamics in the complex landscape of global health,” Science, vol. 347, no. 6227, pp. aaa4339–aaa4339, Mar. 2015.
 
 [2]	P. Klepac, C. J. E. Metcalf, A. R. McLean, and K. Hampson, “Towards the endgame and beyond: complexities and challenges for the elimination of infectious diseases,” Philosophical Transactions of the Royal Society B: Biological Sciences, vol. 368, no. 1623, pp. 20120137–20120137, Jun. 2013.
@@ -735,11 +744,13 @@ at <https://github.com/mrajeev08/ModelingChapter>.
 
 ## Supplementary Figures
 
-![](figs/ch3/image4.jpeg){width="4.76923009623797in"
-height="4.76923009623797in"}
+\beginsupplement
 
-**Supplemental Figure 1. Density vs. frequency-dependent
-transmission.** 
+```{r figS1, fig.cap = '(ref:figS1-cap)', fig.scap='Density vs. frequency-dependent transmission.'}
+knitr::include_graphics("figs/ch3/image4.jpeg")
+```
+
+(ref:figS1-cap) Density vs. frequency-dependent transmission.
 Monthly incidence (the proportion of the population
 infected, and thus removed (as a result of mortality)) from mass-action
 models of rabies with A) frequency and B) density dependent
@@ -748,17 +759,19 @@ incidence peaks at between 1.5 -- 2.0% per month for models with
 density-dependent transmission and between 0.01 - 30% for
 frequency-dependent transmission, compared with the 1 - 2% max annual
 incidence observed empirically. Demographic and transmission parameters
-are listed in Table 20.1 (mean incubation and infectious periods were
+are listed in Table \@ref(tab:ch4-tab1) (mean incubation and infectious periods were
 input as annual rates). Frequency-dependent model is a SEI model with
 starting dog population of 50,000 and seeded with 2 infectious
 individuals. Density-dependent model is adapted from Anderson et al.
 1981, with starting population density of 15 dogs per km^2^ , 0.01
-infectious dogs per km^2^, and carrying capacity of 29 dogs per km^2^.*
+infectious dogs per km^2^, and carrying capacity of 29 dogs per km^2^.
 
-![](figs/ch3/image5.jpeg){width="6.0in" height="6.0in"}
 
-**Supplemental Figure 2. Types of modeling studies.** 
-Categories areadapted from Lloyd-Smith et al. 2009: 1) Predict future trends based on
+```{r figS2, fig.cap = '(ref:figS2-cap)', fig.scap= "Types of canine rabies modeling studies."}
+knitr::include_graphics("figs/ch3/image5.jpeg")
+```
+
+(ref:figS2-cap) Types of modeling studies. Categories areadapted from Lloyd-Smith et al. 2009: 1) Predict future trends based on
 currently available data and model projections; 2) Study control
 measures (using models to estimate/simulate the impacts of control
 efforts and compare intervention strategies); 3) Estimate key parameters
@@ -767,4 +780,4 @@ differentiate between studies which 4) Identify drivers of dynamics
 (that is look at hypothetical factors which may drive transmission*
 *without comparing or fitting to data) and studies which 5) Explain
 observed patterns (use models and data to determine likely drivers of
-observed patterns).*
+observed patterns).
