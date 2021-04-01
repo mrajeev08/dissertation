@@ -47,6 +47,8 @@ url: https://mrajeev08.github.io/dissertation
 \setlength{\parskip}{2em}
 
 
+`r if(!knitr::is_latex_output()) knitr::asis_output("# Preface {-}")`
+
 ```{r if-git, results='asis', echo=FALSE}
 
 # use read lines! So only have to update it in one place
@@ -55,20 +57,13 @@ if(!knitr::is_latex_output()) {
   
   bits <- readLines("latex/before_body.tex")
   
-  cat("
-      
-      # Abstract {-}
-      
-      ")
-  cat(bits[(grep("Abstract", bits) + 1):(grep("Acknowledgements", bits) - 1)],
+  cat(cat("## Abstract {-}", bits[(grep("Abstract", bits) + 1):(grep("Acknowledgements", bits) - 1)], 
+          sep = "\n"),
       sep = "\n")
   
-   cat("
-      
-      # Acknowledgements {-}
-      
-      ")
-  cat(bits[(grep("Acknowledgements", bits) + 1):length(bits)], sep = "\n")
+  cat(cat("## Acknowledgements {-}", bits[(grep("Acknowledgements", bits) + 1):length(bits)],
+          sep = "\n"), 
+      sep = "\n")
 
 }
 
