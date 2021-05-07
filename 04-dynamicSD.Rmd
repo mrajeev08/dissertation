@@ -16,7 +16,8 @@ file.copy(here("analysis/paper/bib/references.bib"),
           "bib/references.bib")
 file.copy(here("analysis/paper/bib/references.bib"), 
           "bib/refs_dummy.bib")
-
+R.utils::copyDirectory(here("analysis/figs"), "docs/figs/ch4")
+                            
 ```
 
 
