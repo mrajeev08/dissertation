@@ -1,9 +1,9 @@
 --- 
 title: |
-  | **DATA AND MODELING TO INFORM CANINE RABIES CONTROL AND ELIMINATION**
+  | DATA AND MODELING TO INFORM CANINE RABIES CONTROL AND ELIMINATION
   |
 date: | 
-  | **Malavika Rajeev**
+  | Malavika Rajeev
   |
   |
   |
@@ -13,15 +13,16 @@ date: |
   |
   |
   |
-  | [REPLACE THIS WITH ACCEPTANCE STATEMENT AFTER COMMITTEE MEETING] 
-  |
+  | RECOMMENDED FOR ACCEPTANCE BY
+  | THE DEPARTMENT OF ECOLOGY AND EVOLUTIONARY BIOLOGY
   |
   |
   | Advisor: C. Jessica E. Metcalf
   |
   |
   |
-  | **May 2021**
+  | May 2021
+  |
 documentclass: book
 bibliography_main: ["bib/references.bib"]
 bibliography_intro: ["bib/intro.bib"]

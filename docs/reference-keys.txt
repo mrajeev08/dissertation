@@ -30,12 +30,12 @@ fig:mfig-posts-best
 fig:mfig-sims-best
 fig:mfig-int-comp
 fig:sfig-mod-ranks
-fig:sfig-mod-lda
 fig:sfig-mod-vimp
 fig:sfig-mod-err
 fig:sfig-posts-vimp
 fig:sfig-posts-jntvsfull
 fig:sfig-posts-err
+fig:sfig-par-recov
 fig:sfig-sims-full
 fig:sfig-sims-joint
 fig:sfig-sims-crps
